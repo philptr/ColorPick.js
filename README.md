@@ -33,6 +33,7 @@ Basic example:
 ```
 
 Result:
+
 ![alt tag](https://raw.githubusercontent.com/philzet/ColorPick.js/master/demo/screenshot.png?token=ALMWaIz-dwolfOXaNQN_dKqgIH5vLglNks5YjJj9wA%3D%3D)
 
 ## Options
