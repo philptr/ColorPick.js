@@ -4,11 +4,9 @@ ColorPick.js is a simple and minimal jQuery color picker plugin.
 
 ## Features
 
-– Simplicity of integration
-
-– The recently used colors are automatically saved to local storage
-
-– Gorgeous modern design that will suit almost every website
+* Simplicity of integration
+* The recently used colors are automatically saved to local storage
+* Gorgeous modern design that will suit almost every website
 
 ## Usage
 
@@ -17,6 +15,7 @@ You can clone [this repository](https://github.com/philzet/ColorPick.js) or down
 ColorPick.js requires jQuery. This is the only dependency. Make sure to load it before ColorPick.js.
 
 Basic example:
+
 ```html
 <head>
   <link rel="stylesheet" href="css/colorPick.min.css">
