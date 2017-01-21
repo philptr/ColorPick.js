@@ -10,7 +10,7 @@ ColorPick.js is a simple and minimal jQuery color picker plugin.
 
 ## Usage
 
-You can clone [this repository](https://github.com/philzet/ColorPick.js) or download the latest build as a zip from here - http://github.com/philzet/ColorPick.js/zipball/master
+You can clone [this repository](https://github.com/philzet/ColorPick.js) or download the latest build as a zip [from here](http://github.com/philzet/ColorPick.js/zipball/master).
 
 ColorPick.js requires jQuery. This is the only dependency. Make sure to load it before ColorPick.js.
 
