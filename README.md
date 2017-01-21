@@ -38,6 +38,7 @@ Result:
 ## Options
 
 **Initial color**
+
 By default, the initial color is #3498db.
 
 ```javascript
@@ -59,6 +60,7 @@ $(".picker").colorPick({
 ```
 
 **Allowing saving recent colors and specifying their number**
+
 By default, recent colors are allowed, and their max number is 5.
 
 ```javascript
@@ -66,6 +68,7 @@ $(".picker").colorPick({ 'allowRecent': true, 'recentMax': 5 });
 ```
 
 **Custom colors database**
+
 By default, we use Flat UI color database.
 
 ```javascript
