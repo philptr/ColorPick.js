@@ -24,7 +24,7 @@ Basic example:
   <div class="colorPickSelector"></div>
   
   <script src="js/jquery.min.js"></script>
-  <script src="js/ColorPick.min.js"></script>
+  <script src="js/colorPick.min.js"></script>
   <script>
     $(".colorPickSelector").colorPick();
   </script>
