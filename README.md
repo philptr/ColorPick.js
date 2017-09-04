@@ -75,6 +75,16 @@ By default, we use Flat UI color database.
 $(".picker").colorPick({ 'palette': ["#1abc9c", "#16a085", "#2ecc71"] });
 ```
 
+**Custom palette label**
+
+Default is "Default palette:" (with colon). 
+If provided `paletteLabel` will overwrite the paletter color.
+
+```javascript
+$(".picker").colorPick({ 'paletteLabel': 'Custom label' });
+```
+
+
 ## License
 
 MIT License
