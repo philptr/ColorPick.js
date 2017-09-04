@@ -31,6 +31,7 @@
 	<script>
 		$(".colorPickSelector").colorPick({
 			'initialColor' : '#27ae60',
+			'recentMax': 2,
 			'onColorSelected': function() {
 				console.log("The user has selected the color: " + this.color)
 				this.element.css({'backgroundColor': this.color, 'color': this.color});

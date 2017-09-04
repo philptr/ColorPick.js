@@ -24,6 +24,7 @@
         if(options.str) {
             this.options.str = $.extend({}, $.fn.colorpickr.defaults.str, options.str);
         }
+         $.fn.colorPick.defaults = this.options;
         this.color   = this.options.initialColor;
         this.element = $(element);
         return this.element.hasClass(this.options.pickrclass) ? this : this.init();
@@ -101,6 +102,9 @@
 				} else {
 					jQuery.each(JSON.parse(localStorage.getItem("colorPickRecentItems")), (index, item) => {
 		        		$("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
+                        if (index == $.fn.colorPick.defaults.recentMax-1) {
+                            return false;
+                        }
 					});
 				}
 			}
