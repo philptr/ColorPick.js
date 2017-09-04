@@ -21,12 +21,12 @@ Basic example:
   <link rel="stylesheet" href="css/colorPick.min.css">
 </head>
 <body>
-  <div class="colorPickSelector"></div>
+  <div class="picker"></div>
   
   <script src="js/jquery.min.js"></script>
   <script src="js/colorPick.min.js"></script>
   <script>
-    $(".colorPickSelector").colorPick();
+    $(".picker").colorPick();
   </script>
 </body>
 ```
@@ -41,9 +41,15 @@ Result:
 
 By default, the initial color is #3498db.
 
+You can overwrite this globally for all pickers on the page with `initialColor` option: 
+
 ```javascript
 $(".picker").colorPick({ 'initialColor': '#27ae60' });
 ```
+
+For different initial colors for individual pickers use `data-initialcolor` attribute: 
+
+`<div class="picker" data-initialcolor="#3998DB"></div>`
 
 **Custom action**
 
@@ -74,6 +80,25 @@ By default, we use Flat UI color database.
 ```javascript
 $(".picker").colorPick({ 'palette': ["#1abc9c", "#16a085", "#2ecc71"] });
 ```
+
+**Custom palette label**
+
+Default is "Default palette:" (with colon). 
+If provided `paletteLabel` will overwrite the palette label.
+
+```javascript
+$(".picker").colorPick({ 'paletteLabel': 'Custom label' });
+```
+
+**Allow custom color**
+
+You can allow users to enter custom color hash. Defaults to false. This will enable input field that accepts color 3- or 6-letter color hash.
+
+```javascript
+$(".picker").colorPick({ 'allowCustomColor': true });
+```
+
+
 
 ## License
 

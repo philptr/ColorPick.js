@@ -7,7 +7,7 @@
 	
 	<link rel="stylesheet" href="../src/colorPick.css">
 	<style>
-		.colorPickSelector {
+		.picker {
 			border-radius: 5px;
 			width: 36px;
 			height: 36px;
@@ -17,20 +17,22 @@
 			-ms-transition: all linear .2s;
 			-o-transition: all linear .2s;
 			transition: all linear .2s;
+			border: thin solid #eee;
 		}
-		.colorPickSelector:hover {
+		.picker:hover {
 			transform: scale(1.1);
 		}
 	</style>
 </head>
 <body>
-	<div class="colorPickSelector"></div>
-	
+
+	<div class="picker"></div>
+
 	<script src="js/jquery-3.1.1.min.js"></script>
 	<script src="../src/colorPick.js"></script>
 	<script>
-		$(".colorPickSelector").colorPick({
-			'initialColor' : '#27ae60',
+		$(".picker").colorPick({
+			'initialColor' : '#8e44ad',
 			'onColorSelected': function() {
 				console.log("The user has selected the color: " + this.color)
 				this.element.css({'backgroundColor': this.color, 'color': this.color});
