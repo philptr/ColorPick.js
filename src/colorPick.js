@@ -43,6 +43,8 @@
     $.colorPick.prototype = {
         
         init : function(){
+
+
             var self = this;
             var o = this.options;
             
@@ -68,7 +70,7 @@
                 return false;
             });
             
-            $(document).click(function(event) {
+            $(document).on('click', function(event) {
                 self.hide();
                 return true;
             });
@@ -91,6 +93,9 @@
         },
         
         show: function(left, top) {
+
+            $("#colorPick").remove();
+
 	        $("body").append('<div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>Default palette:</span></div>');
 	        jQuery.each($.fn.colorPick.defaults.palette, (index, item) => {
 		        $("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
