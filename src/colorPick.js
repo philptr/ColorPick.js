@@ -35,7 +35,8 @@
         'paletteLabel': 'Default palette:',
         'allowRecent': true,
         'recentMax': 5,
-        'palette': ["#1abc9c", "#16a085", "#2ecc71", "#27ae60", "#3498db", "#2980b9", "#9b59b6", "#8e44ad", "#34495e", "#2c3e50", "#f1c40f", "#f39c12", "#e67e22", "#d35400", "#e74c3c", "#c0392b", "#ecf0f1", "#bdc3c7", "#95a5a6", "#7f8c8d"],
+        'allowCustomColor': false,
+        'palette': ["#16a085", "#2ecc71", "#27ae60", "#3498db", "#2980b9", "#9b59b6", "#8e44ad", "#34495e", "#2c3e50", "#f1c40f", "#f39c12", "#e67e22", "#d35400", "#e74c3c", "#c0392b", "#ecf0f1", "#bdc3c7", "#95a5a6", "#7f8c8d"],
         'onColorSelected': function() {
             this.element.css({'backgroundColor': this.color, 'color': this.color});
         }
@@ -45,7 +46,6 @@
         
         init : function(){
 
-
             var self = this;
             var o = this.options;
             
@@ -54,6 +54,8 @@
             this.element.click(function(event) {
                 event.preventDefault();
                 self.show(event.pageX, event.pageY);
+
+                $('.customColorHash').val(self.color);
                 
                 $('.colorPickButton').click(function(event) {
 					self.color = $(event.target).attr('hexValue');
@@ -62,6 +64,22 @@
 					$.proxy(self.options.onColorSelected, self)();
 					return false;
             	});
+                $('.customColorHash').click(function(event) {
+                    return false;
+                }).keyup(function (event) {
+                    var hash = $(this).val();
+                    if (hash.indexOf('#') !== 0) {
+                        hash = "#"+hash;
+                    }
+                    if (/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(hash)) {
+                        self.color = hash;
+                        self.appendToStorage(hash);
+                        $.proxy(self.options.onColorSelected, self)();
+                        $(this).removeClass('error');
+                    } else {
+                        $(this).addClass('error');
+                    }
+                });
                 
                 return false;
             }).blur(function() {
@@ -101,6 +119,9 @@
 	        jQuery.each($.fn.colorPick.defaults.palette, (index, item) => {
 		        $("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
 			});
+             if ($.fn.colorPick.defaults.allowCustomColor === true) {
+                $("#colorPick").append('<input type="text" placeholder="Custom color #hash" style="margin-top:5px" class="customColorHash" />');
+            }
 			if ($.fn.colorPick.defaults.allowRecent === true) {
 				$("#colorPick").append('<span style="margin-top:5px">Recent:</span>');
 				if (JSON.parse(localStorage.getItem("colorPickRecentItems")) == null || JSON.parse(localStorage.getItem("colorPickRecentItems")) == []) {

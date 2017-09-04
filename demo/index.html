@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>ColorPick.js</title>
 	
-	<link rel="stylesheet" href="../src/colorPick.css">
+	<link rel="stylesheet" href="../src/colorPick.min.css">
 	<style>
 		.colorPickSelector {
 			border-radius: 5px;
@@ -17,6 +17,7 @@
 			-ms-transition: all linear .2s;
 			-o-transition: all linear .2s;
 			transition: all linear .2s;
+			border: thin solid #eee;
 		}
 		.colorPickSelector:hover {
 			transform: scale(1.1);
@@ -26,11 +27,10 @@
 <body>
 	<div class="colorPickSelector"></div>
 	<script src="js/jquery-3.1.1.min.js"></script>
-	<script src="../src/colorPick.js"></script>
+	<script src="../src/colorPick.min.js"></script>
 	<script>
 		$(".colorPickSelector").colorPick({
 			'initialColor' : '#8e44ad',
-			'paletteLabel' : 'Custom label',
 			'onColorSelected': function() {
 				console.log("The user has selected the color: " + this.color)
 				this.element.css({'backgroundColor': this.color, 'color': this.color});

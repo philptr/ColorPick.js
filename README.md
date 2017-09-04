@@ -78,11 +78,20 @@ $(".picker").colorPick({ 'palette': ["#1abc9c", "#16a085", "#2ecc71"] });
 **Custom palette label**
 
 Default is "Default palette:" (with colon). 
-If provided `paletteLabel` will overwrite the paletter color.
+If provided `paletteLabel` will overwrite the paletter label.
 
 ```javascript
 $(".picker").colorPick({ 'paletteLabel': 'Custom label' });
 ```
+
+**Allow custom color**
+
+You can allow users to enter custom color hash. Defaults to false.
+
+```javascript
+$(".picker").colorPick({ 'allowCustomColor': true });
+```
+
 
 
 ## License
