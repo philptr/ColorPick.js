@@ -49,7 +49,7 @@ $(".picker").colorPick({ 'initialColor': '#27ae60' });
 
 For different initial colors for individual pickers use `data-initialcolor` attribute: 
 
-`<div class="colorPickSelector" data-initialcolor="#3998DB"></div>`
+`<div class="picker" data-initialcolor="#3998DB"></div>`
 
 **Custom action**
 
