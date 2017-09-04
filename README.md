@@ -21,12 +21,12 @@ Basic example:
   <link rel="stylesheet" href="css/colorPick.min.css">
 </head>
 <body>
-  <div class="colorPickSelector"></div>
+  <div class="picker"></div>
   
   <script src="js/jquery.min.js"></script>
   <script src="js/colorPick.min.js"></script>
   <script>
-    $(".colorPickSelector").colorPick();
+    $(".picker").colorPick();
   </script>
 </body>
 ```
@@ -41,9 +41,15 @@ Result:
 
 By default, the initial color is #3498db.
 
+You can overwrite this globally for all pickers on the page with `initialColor` option: 
+
 ```javascript
 $(".picker").colorPick({ 'initialColor': '#27ae60' });
 ```
+
+For different initial colors for individual pickers use `data-initialcolor` attribute: 
+
+`<div class="colorPickSelector" data-initialcolor="#3998DB"></div>`
 
 **Custom action**
 

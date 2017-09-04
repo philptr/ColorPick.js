@@ -25,8 +25,15 @@
             this.options.str = $.extend({}, $.fn.colorpickr.defaults.str, options.str);
         }
          $.fn.colorPick.defaults = this.options;
-        this.color   = this.options.initialColor;
+        this.color   = this.options.initialColor;            
         this.element = $(element);
+        
+        var dataInitialColor = this.element.data('initialcolor');
+        if (dataInitialColor) {
+            this.color = dataInitialColor;
+            this.appendToStorage(this.color);
+        }
+
         return this.element.hasClass(this.options.pickrclass) ? this : this.init();
     };
     
@@ -50,7 +57,7 @@
             var o = this.options;
             
             $.proxy($.fn.colorPick.defaults.onColorSelected, this)();
-            
+
             this.element.click(function(event) {
                 event.preventDefault();
                 self.show(event.pageX, event.pageY);
