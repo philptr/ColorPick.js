@@ -84,7 +84,7 @@ $(".picker").colorPick({ 'palette': ["#1abc9c", "#16a085", "#2ecc71"] });
 **Custom palette label**
 
 Default is "Default palette:" (with colon). 
-If provided `paletteLabel` will overwrite the paletter label.
+If provided `paletteLabel` will overwrite the palette label.
 
 ```javascript
 $(".picker").colorPick({ 'paletteLabel': 'Custom label' });
@@ -92,7 +92,7 @@ $(".picker").colorPick({ 'paletteLabel': 'Custom label' });
 
 **Allow custom color**
 
-You can allow users to enter custom color hash. Defaults to false.
+You can allow users to enter custom color hash. Defaults to false. This will enable input field that accepts color 3- or 6-letter color hash.
 
 ```javascript
 $(".picker").colorPick({ 'allowCustomColor': true });
