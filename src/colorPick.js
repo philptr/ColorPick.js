@@ -7,7 +7,6 @@
 * Licensed under the MIT License
 *
 */
-
 (function( $ ) {
  
     $.fn.colorPick = function(config) {
@@ -24,7 +23,7 @@
         if(options.str) {
             this.options.str = $.extend({}, $.fn.colorpickr.defaults.str, options.str);
         }
-         $.fn.colorPick.defaults = this.options;
+        $.fn.colorPick.defaults = this.options;
         this.color   = this.options.initialColor;            
         this.element = $(element);
         
@@ -35,7 +34,7 @@
         }
 
         var uniquePalette = [];
-        $.each($.fn.colorPick.defaults.palette, function(i, el){
+        $.each($.fn.colorPick.defaults.palette.map(function(x){ return x.toUpperCase() }), function(i, el){
             if($.inArray(el, uniquePalette) === -1) uniquePalette.push(el);
         });
         $.fn.colorPick.defaults.palette = uniquePalette;
@@ -133,7 +132,7 @@
 		        $("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
 			});
              if ($.fn.colorPick.defaults.allowCustomColor === true) {
-                $("#colorPick").append('<input type="text" placeholder="Custom color #hash" style="margin-top:5px" class="customColorHash" />');
+                $("#colorPick").append('<input type="text" style="margin-top:5px" class="customColorHash" />');
             }
 			if ($.fn.colorPick.defaults.allowRecent === true) {
 				$("#colorPick").append('<span style="margin-top:5px">Recent:</span>');
@@ -161,4 +160,3 @@
     };
  
 }( jQuery ));
- 

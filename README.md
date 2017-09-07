@@ -92,7 +92,7 @@ $(".picker").colorPick({ 'paletteLabel': 'Custom label' });
 
 **Allow custom color**
 
-You can allow users to enter custom color hash. Defaults to false. This will enable input field that accepts color 3- or 6-letter color hash.
+You can allow users to enter custom color. This will enable input field that accepts 3- or 6-letter HEX color. Defaults to false. 
 
 ```javascript
 $(".picker").colorPick({ 'allowCustomColor': true });
