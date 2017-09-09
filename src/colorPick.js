@@ -8,15 +8,15 @@
 *
 */
 (function( $ ) {
- 
+
     $.fn.colorPick = function(config) {
- 
+
         return this.each(function() {
             new $.colorPick(this, config || {});
         });
- 
+
     };
-    
+
     $.colorPick = function (element, options) {
         options = options || {};
         this.options = $.extend({}, $.fn.colorPick.defaults, options);
@@ -24,9 +24,9 @@
             this.options.str = $.extend({}, $.fn.colorpickr.defaults.str, options.str);
         }
         $.fn.colorPick.defaults = this.options;
-        this.color   = this.options.initialColor;            
+        this.color   = this.options.initialColor.toUpperCase();
         this.element = $(element);
-        
+
         var dataInitialColor = this.element.data('initialcolor');
         if (dataInitialColor) {
             this.color = dataInitialColor;
@@ -37,11 +37,12 @@
         $.each($.fn.colorPick.defaults.palette.map(function(x){ return x.toUpperCase() }), function(i, el){
             if($.inArray(el, uniquePalette) === -1) uniquePalette.push(el);
         });
-        $.fn.colorPick.defaults.palette = uniquePalette;
+
+        this.palette = uniquePalette;
 
         return this.element.hasClass(this.options.pickrclass) ? this : this.init();
     };
-    
+
     $.fn.colorPick.defaults = {
         'initialColor': '#3498db',
         'paletteLabel': 'Default palette:',
@@ -53,14 +54,14 @@
             this.element.css({'backgroundColor': this.color, 'color': this.color});
         }
     };
-    
+
     $.colorPick.prototype = {
-        
+
         init : function(){
 
             var self = this;
             var o = this.options;
-            
+
             $.proxy($.fn.colorPick.defaults.onColorSelected, this)();
 
             this.element.click(function(event) {
@@ -68,7 +69,7 @@
                 self.show(event.pageX, event.pageY);
 
                 $('.customColorHash').val(self.color);
-                
+
                 $('.colorPickButton').click(function(event) {
 					self.color = $(event.target).attr('hexValue');
 					self.appendToStorage($(event.target).attr('hexValue'));
@@ -92,7 +93,7 @@
                         $(this).addClass('error');
                     }
                 });
-                
+
                 return false;
             }).blur(function() {
                 self.element.val(self.color);
@@ -100,15 +101,15 @@
                 self.hide();
                 return false;
             });
-            
+
             $(document).on('click', function(event) {
                 self.hide();
                 return true;
             });
-            
+
             return this;
         },
-        
+
         appendToStorage: function(color) {
 	        if ($.fn.colorPick.defaults.allowRecent === true) {
 	        	var storedColors = JSON.parse(localStorage.getItem("colorPickRecentItems"));
@@ -122,13 +123,13 @@
 	        	}
 	        }
         },
-        
+
         show: function(left, top) {
 
             $("#colorPick").remove();
 
 	        $("body").append('<div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.colorPick.defaults.paletteLabel+'</span></div>');
-	        jQuery.each($.fn.colorPick.defaults.palette, (index, item) => {
+	        jQuery.each(this.palette, (index, item) => {
 		        $("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
 			});
              if ($.fn.colorPick.defaults.allowCustomColor === true) {
@@ -149,14 +150,14 @@
 			}
 	        $("#colorPick").fadeIn(200);
 	    },
-	    
+
 	    hide: function() {
 		    $( "#colorPick" ).fadeOut(200, function() {
 			    $("#colorPick").remove();
 			    return this;
 			});
         },
-        
+
     };
- 
+
 }( jQuery ));
