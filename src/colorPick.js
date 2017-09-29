@@ -129,10 +129,10 @@
             $("#colorPick").remove();
 
 	        $("body").append('<div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.colorPick.defaults.paletteLabel+'</span></div>');
-	        jQuery.each(this.palette, (index, item) => {
-		        $("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
+	        jQuery.each(this.palette, function (index, item) {
+				$("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
 			});
-             if ($.fn.colorPick.defaults.allowCustomColor === true) {
+            if ($.fn.colorPick.defaults.allowCustomColor === true) {
                 $("#colorPick").append('<input type="text" style="margin-top:5px" class="customColorHash" />');
             }
 			if ($.fn.colorPick.defaults.allowRecent === true) {
