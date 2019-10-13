@@ -9,6 +9,7 @@ ColorPick.js is a simple and minimal jQuery color picker plugin for the modern w
 * The recently used colors are automatically saved to local storage
 * Simplicity of integration
 * Gorgeous modern design that will suit almost every website
+* Dark mode
 
 ## Usage
 
