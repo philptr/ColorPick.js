@@ -3,7 +3,7 @@
 * ColorPick jQuery plugin
 * https://github.com/philzet/ColorPick.js
 *
-* Copyright (c) 2017 Phil Zet (a.k.a. Philipp Zakharchenko)
+* Copyright (c) 2017-2019 Phil Zet (a.k.a. Phil Zakharchenko)
 * Licensed under the MIT License
 *
 */
@@ -45,7 +45,7 @@
 	width: 122px;
 	margin: 1px 4px ;
 	padding: 0 4px;
-	border: 1px solid #babbba;	
+	border: 1px solid #babbba;
 	outline: none;
 }
 .customColorHash.error {

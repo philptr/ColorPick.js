@@ -3,7 +3,7 @@
 * ColorPick jQuery plugin
 * https://github.com/philzet/ColorPick.js
 *
-* Copyright (c) 2017 Phil Zet (a.k.a. Philipp Zakharchenko)
+* Copyright (c) 2017-2019 Phil Zet (a.k.a. Phil Zakharchenko)
 * Licensed under the MIT License
 *
 */
@@ -140,7 +140,7 @@
 				if (JSON.parse(localStorage.getItem("colorPickRecentItems")) == null || JSON.parse(localStorage.getItem("colorPickRecentItems")) == []) {
 					$("#colorPick").append('<div class="colorPickButton colorPickDummy"></div>');
 				} else {
-					jQuery.each(JSON.parse(localStorage.getItem("colorPickRecentItems")), function (index, item) { 
+					jQuery.each(JSON.parse(localStorage.getItem("colorPickRecentItems")), function (index, item) {
 		        		$("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
                         if (index == $.fn.colorPick.defaults.recentMax-1) {
                             return false;
