@@ -21,7 +21,7 @@
         options = options || {};
         this.options = $.extend({}, $.fn.colorPick.defaults, options);
         if(options.str) {
-            this.options.str = $.extend({}, $.fn.colorpickr.defaults.str, options.str);
+            this.options.str = $.extend({}, $.fn.colorPick.defaults.str, options.str);
         }
         $.fn.colorPick.defaults = this.options;
         this.color   = this.options.initialColor.toUpperCase();
