@@ -42,6 +42,7 @@
   padding: 15px;
   font-family: "Open Sans", sans-serif;
   width: 140px;
+  box-sizing: content-box;
 }
 
 #colorPick span {
