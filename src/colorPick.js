@@ -61,12 +61,15 @@
 
             var self = this;
             var o = this.options;
+            var elem = this.element;
 
             $.proxy($.fn.colorPick.defaults.onColorSelected, this)();
 
-            this.element.click(function(event) {
+            elem.click(function(event) {
+                var offset = $(elem).offset();
+
                 event.preventDefault();
-                self.show(event.pageX, event.pageY);
+                self.show(elem, event.pageX - offset.left, event.pageY - offset.top);
 
                 $('.customColorHash').val(self.color);
 
@@ -124,11 +127,12 @@
 	        }
         },
 
-        show: function(left, top) {
+        show: function(element, left, top) {
 
             $("#colorPick").remove();
 
-	        $("body").append('<div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.colorPick.defaults.paletteLabel+'</span></div>');
+            $(element).append('<div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.colorPick.defaults.paletteLabel+'</span></div>');
+
 	        jQuery.each(this.palette, function (index, item) {
 				$("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
 			});
@@ -149,7 +153,7 @@
 				}
 			}
 	        $("#colorPick").fadeIn(200);
-	    },
+        },
 
 	    hide: function() {
 		    $( "#colorPick" ).fadeOut(200, function() {
