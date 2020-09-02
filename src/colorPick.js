@@ -61,15 +61,14 @@
 
             var self = this;
             var o = this.options;
-            var elem = this.element;
 
             $.proxy($.fn.colorPick.defaults.onColorSelected, this)();
 
-            elem.click(function(event) {
-                var offset = $(elem).offset();
+            this.element.click(function(event) {
+                var offset = $(self.element).offset();
 
                 event.preventDefault();
-                self.show(elem, event.pageX - offset.left, event.pageY - offset.top);
+                self.show(self.element, event.pageX - offset.left, event.pageY - offset.top);
 
                 $('.customColorHash').val(self.color);
 
@@ -129,9 +128,9 @@
 
         show: function(element, left, top) {
 
-            $("#colorPick").remove();
+            $(".colorPickWrapper").remove();
 
-            $(element).append('<div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.colorPick.defaults.paletteLabel+'</span></div>');
+            $(element).prepend('<div class="colorPickWrapper"><div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.colorPick.defaults.paletteLabel+'</span></div></div>');
 
 	        jQuery.each(this.palette, function (index, item) {
 				$("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
@@ -156,8 +155,8 @@
         },
 
 	    hide: function() {
-		    $( "#colorPick" ).fadeOut(200, function() {
-			    $("#colorPick").remove();
+		    $( ".colorPickWrapper" ).fadeOut(200, function() {
+                $(".colorPickWrapper").remove();
 			    return this;
 			});
         },
