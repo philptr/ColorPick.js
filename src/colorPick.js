@@ -65,8 +65,10 @@
             $.proxy($.fn.colorPick.defaults.onColorSelected, this)();
 
             this.element.click(function(event) {
+                var offset = $(self.element).offset();
+
                 event.preventDefault();
-                self.show(event.pageX, event.pageY);
+                self.show(self.element, event.pageX - offset.left, event.pageY - offset.top);
 
                 $('.customColorHash').val(self.color);
 
@@ -124,11 +126,12 @@
 	        }
         },
 
-        show: function(left, top) {
+        show: function(element, left, top) {
 
-            $("#colorPick").remove();
+            $(".colorPickWrapper").remove();
 
-	        $("body").append('<div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.colorPick.defaults.paletteLabel+'</span></div>');
+            $(element).prepend('<div class="colorPickWrapper"><div id="colorPick" style="display:none;top:' + top + 'px;left:' + left + 'px"><span>'+$.fn.colorPick.defaults.paletteLabel+'</span></div></div>');
+
 	        jQuery.each(this.palette, function (index, item) {
 				$("#colorPick").append('<div class="colorPickButton" hexValue="' + item + '" style="background:' + item + '"></div>');
 			});
@@ -149,11 +152,11 @@
 				}
 			}
 	        $("#colorPick").fadeIn(200);
-	    },
+        },
 
 	    hide: function() {
-		    $( "#colorPick" ).fadeOut(200, function() {
-			    $("#colorPick").remove();
+		    $( ".colorPickWrapper" ).fadeOut(200, function() {
+                $(".colorPickWrapper").remove();
 			    return this;
 			});
         },

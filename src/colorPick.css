@@ -25,6 +25,13 @@
       format("woff");
 }
 
+/* Used as an anchor point to position the color picker */
+.colorPickWrapper {
+    position: relative;
+    width: 0;
+    height: 0;
+}
+
 #colorPick * {
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
@@ -42,6 +49,7 @@
   padding: 15px;
   font-family: "Open Sans", sans-serif;
   width: 140px;
+  z-index: 999;
 }
 
 #colorPick span {
