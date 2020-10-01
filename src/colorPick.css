@@ -53,6 +53,7 @@
 }
 
 #colorPick span {
+  user-select: none;
   font-size: 9pt;
   text-transform: uppercase;
   font-weight: bold;
