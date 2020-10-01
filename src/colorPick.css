@@ -49,6 +49,7 @@
   padding: 15px;
   font-family: "Open Sans", sans-serif;
   width: 140px;
+  box-sizing: content-box;
   z-index: 999;
 }
 
