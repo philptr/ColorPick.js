@@ -65,6 +65,10 @@
             $.proxy($.fn.colorPick.defaults.onColorSelected, this)();
 
             this.element.click(function(event) {
+                if (event.target != event.currentTarget){
+			        return;
+				}
+
                 var offset = $(self.element).offset();
 
                 event.preventDefault();
@@ -105,6 +109,9 @@
             });
 
             $(document).on('click', function(event) {
+                if ($.contains(self.element[0], event.target)){
+                    return;
+                }
                 self.hide();
                 return true;
             });
